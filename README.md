@@ -16,3 +16,5 @@ https://faaydemir.github.io/routinize
 - notification
 - implement delete me 
 ## issues
+- monyhly view extend small screen
+- after task added form is not cleaned
