@@ -1,6 +1,6 @@
-# task-tracker
+# routinize
 a simple app to track your recurring tasks. (daily, weekly etc)
-https://task-check-6db15.web.app/
+https://faaydemir.github.io/routinize
 
 ## build with
 - react for web interface

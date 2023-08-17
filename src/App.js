@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import  "core/firebase/firebase";
+import "core/firebase/firebase";
 
 import { Route, Switch } from 'react-router-dom'
 
@@ -25,15 +25,11 @@ export default function App() {
   }, []);
 
   return (
-    <>
-      <Switch>
-        <Route exact path='/' render={() => isAuthenticated ? <Home /> : <SignIn />} />
-        <Route exact path='/signin' render={() => isAuthenticated ? <Home /> : <SignIn />} />
-        <Route exact path='/signup' render={() => isAuthenticated ? <Home /> : <SignUp />} />
-      </Switch>
-      :<></>
-      {/* <Spinner isVisible={true}></Spinner> */}
-    </>
+    <Switch>
+      <Route path='/signin' render={() => isAuthenticated ? <Home /> : <SignIn />} />
+      <Route path='/signup' render={() => isAuthenticated ? <Home /> : <SignUp />} />
+      <Route path='/' render={() => isAuthenticated ? <Home /> : <SignIn />} />
+    </Switch>
   );
 }
 
