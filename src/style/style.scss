@@ -1,0 +1,204 @@
+@import "./variables.scss";
+@import "./normalize.scss";
+@import "./layout.scss";
+
+*,
+*:focus,
+*:hover {
+	outline: none;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	quotes: "«" "»";
+}
+body {
+	background: linear-gradient(135deg, #c2edfd, #e4e5f3, #e4e5f3);
+	font-family: "DM Sans", sans-serif;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	@media (max-width: 750px) {
+		justify-content: center;
+	}
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	position: relative;
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+// TODO delete
+.priority-d-1 {
+	border-color: mix(#722a65, #d6306d, percentage(3 / 3));
+}
+
+%transition {
+	transition: all $duration $easing;
+}
+
+.blur {
+	-webkit-filter: blur(3px);
+	-moz-filter: blur(3px);
+	-o-filter: blur(3px);
+	-ms-filter: blur(3px);
+	filter: blur(3px);
+}
+
+/**** MODAL ****/
+
+.modal {
+	background: $color-white-light;
+	position: absolute;
+	width: $modal-width;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 30px;
+	border-radius: 10px;
+	border: 1px solid $color-action;
+	@media (max-width: 768px) {
+		width: 100%;
+		border-radius: 0;
+		border: none;
+	}
+}
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(135deg, #c2edfdde, #e4e5f3de, #e4e5f3de);
+}
+
+/**** FORM ****/
+
+input,
+textarea,
+select,
+option {
+	padding: 7px 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	color: $font-color;
+	font-family: "DM Sans", sans-serif;
+	font-size: $size-normal;
+}
+
+.form-field {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 5px 5px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	position: relative;
+}
+
+.form-field:not(:first-of-type) {
+	display: none;
+}
+
+.form-field-label {
+	margin-top: 0.3em;
+	font-size: $size-small;
+	@media (max-width: 768px) {
+		font-size: $size-normal;
+	}
+}
+
+.input-with-icon-container {
+	border-radius: 3px;
+	width: 100%;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+}
+.icon {
+	align-items: center;
+	font-size: 24px;
+	height: 100%;
+	align-self: center;
+	padding: 2px;
+	border-radius: 3px;
+}
+
+.icon-delete {
+	color: #d6306d;
+	&:hover {
+		color: white;
+		background-color: #d6306d;
+	}
+}
+
+.icon-add {
+	color: #346fef;
+	&:hover {
+		color: white;
+		background-color: #346fef;
+	}
+}
+
+/**** BUTTON ****/
+
+.button {
+	border: 1px solid;
+	border-radius: 3px;
+	border-color: #c0baba;
+	box-sizing: border-box;
+	margin: 4px;
+	padding: 8px;
+	cursor: pointer;
+	background-color: $color-white;
+	color: #666766;
+	transition: box-shadow 0.3s;
+	&:hover {
+		border-color: #666766;
+		box-shadow: 0 0 12px rgba(33, 33, 33, 0.2);
+	}
+	&:active {
+		box-shadow: 0 6px 12px rgba(33, 33, 33, 0.8);
+	}
+}
+
+.danger {
+	border-color: $danger-color;
+	background-color: $danger-color;
+	color: white;
+}
+.info {
+	color: white;
+	background-color: $info-color;
+}
+.primary {
+	color: white;
+	border-color: $primary-color;
+	background-color: $primary-color;
+}
+.action {
+	color: white;
+	background-color: #346fef;
+}

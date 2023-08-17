@@ -1,0 +1,63 @@
+@import "../../../style/style.scss";
+
+.box {
+    float: left;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 2px;
+    font-size: $size-normal;
+    flex-shrink: 0;
+    @extend %transition;
+}
+
+@for $i from 1 through 32 {
+    .box-#{$i}-1 {
+        width: $i * $tile-size;
+        height: $tile-size;
+    }
+}
+
+.box-partial {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.material-icons {
+    &.task-check {
+        border-radius: 1px;
+        border: 1px solid;
+        border-color: $color-done;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+}
+
+.task-not-set {
+    background-color: $color-white;
+    color: #12255d;
+}
+
+.task-done {
+    background-color: $color-done;
+    color: $color-white;
+}
+
+.task-locked {
+    background-color: $color-white;
+    color: transparent;
+    border-color: wheat !important;
+}

@@ -1,0 +1,237 @@
+@import "../../../../../styles.scss";
+
+.box {
+    display: block;
+    float: left;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 2px;
+    font-size: $size-normal;
+    flex-shrink: 0;
+    @extend %transition;
+}
+
+@for $i from 1 through 32 {
+    .box-#{$i}-1 {
+        width: $i * $tile-size;
+        height: $tile-size;
+    }
+}
+
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    background-color: $calendar-background;
+    padding: 50px 50px 20px 50px;
+    border-radius: 6px;
+    box-shadow: 0px 1px 10px 0px #a32c6721;
+    margin: auto;
+
+    @media (max-width: 768px) {
+        align-items: center;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.calendar-mid {
+    @media (max-width: 768px) {
+        display: flex;
+        padding: 0;
+        overflow-x: scroll;
+        overflow-y: scroll;
+        white-space: nowrap;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+    }
+}
+
+.calendar-main {
+    @media (max-width: 768px) {
+        margin: auto;
+        padding: 0;
+        height: 100%;
+        width: fit-content;
+    }
+}
+
+.warning-message {
+    margin: 10em 5em;
+    font-size: $size-large;
+}
+
+.calendar-column {
+    display: flex;
+    flex-direction: row;
+    background-color: none !important;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 10px 10px;
+        margin-bottom: 10px;
+        border-radius: 3px;
+        border: 1px solid red;
+        width: fit-content;
+
+        .calendar-units {}
+    }
+}
+
+.header-column {
+    @media (max-width: 768px) {
+        padding: 0 10px;
+        margin-bottom: 0px;
+        border: none;
+
+        .calendar-units {
+            margin-top: 0.2em;
+        }
+    }
+}
+
+.calendar-pagination {
+    margin-top: 50px;
+    justify-content: flex-end;
+
+    @media (max-width: 768px) {
+        margin: 0.5em 0.4em 0.5em 5em;
+        background-color: transparent;
+        justify-content: space-between;
+        align-self: end;
+    }
+}
+
+.calendar-header {
+    margin: 1em 1em 2em 1em;
+    padding: 0 0.5em;
+    align-self: center;
+    font-weight: 400;
+    font-size: 1.5em;
+    border-bottom: 2px solid $color-overdue;
+
+    @media (max-width: 768px) {
+        font-size: 1.3em;
+        margin: 0.7em;
+    }
+}
+
+.day-header {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    @extend %transition;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+.button-navigation {
+    border: 1px solid;
+    border-radius: 3px;
+    border-color: #c0baba;
+    margin: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    background-color: $color-white;
+    color: #666766;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+        border-color: #666766;
+        box-shadow: 0 0 12px rgba(33, 33, 33, 0.2);
+    }
+
+    &:active {
+        background-color: $color-white-darken;
+        box-shadow: 0 6px 12px rgba(33, 33, 33, 0.8);
+    }
+}
+
+.button-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+}
+
+.button-navigation.button-active {
+    background-color: $color-action-low;
+    border-color: $color-action-low;
+    color: $color-white;
+}
+
+.day-name-string {
+    font-size: $size-small;
+}
+
+.day-index-string {
+    font-size: $size-small;
+}
+
+//TODO trash
+.today-focus {
+    background-color: #a32c68;
+    color: white !important;
+    border-radius: 5px !important;
+    margin: 0px 3px;
+}
+
+.header-placeholder {
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.task-header {
+    font-weight: 500;
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2px 4px;
+        width: 100%;
+        height: 100%;
+        border: 2px solid $default-task-color;
+        border-radius: 3px !important;
+    }
+
+    @media (max-width: 768px) {
+        position: sticky;
+        left: 0;
+        height: 1.3em;
+        margin: 0px;
+        justify-content: flex-start;
+        padding: 2px 4px;
+
+        a {
+            font-weight: 400;
+            padding: 0;
+            font-size: 20px !important;
+            justify-content: start;
+            border: none;
+            background-color: inherit !important;
+        }
+    }
+}
+
+.day-task-header {
+    font-weight: 500;
+}

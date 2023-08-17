@@ -1,0 +1,80 @@
+@import "../../../../../styles.scss";
+
+
+.profile-menu
+{
+    top:-25px;
+    right:1em;
+    position: absolute;
+    width: 120px;
+    height:40px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    .profile-button {
+        background-color: $color-white;
+        border:1px solid $color-action;
+        color: #A32C68;
+        border-radius: 23px;
+        width: 46px;
+        height:46px;
+        padding: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        &:hover {
+          //TODO button hover same
+          color: #be0a64;
+          border:1px solid #be0a64;
+        }
+    }
+    .nav {
+        visibility: hidden;
+        transition: all 0.4s ease-in-out;
+        background: #fff;
+        width: 100%;
+        border-radius: 5px;
+        transform: translateY(0%);
+        box-shadow: 0 0 5px 0 rgba(81, 81, 81, 0.1);
+        border: 1px solid #e4e4e4;
+        padding: 5px;
+        margin:0.5em 0;
+        &:hover {
+            visibility: visible;
+            
+        }
+        ul {
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      
+        a {
+          text-align: center;
+          margin: 10px 0;
+          text-decoration: none;
+          
+          &:hover {
+            color: #A32C68;
+            font-weight: 500;
+          }
+        }
+    }
+    .profile-button:hover ~ .nav{
+        visibility: visible;
+    }
+
+    @media (max-width: 768px) {
+      top:0.4em;
+      right:0.4em;
+      align-items: flex-end;
+  }
+}
+
+
+
+
