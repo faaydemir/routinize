@@ -44,6 +44,7 @@ const Calendar = ({ }) => {
                   calendar.activities.map(
                     activity => (
                       <TaskColumn
+                        key= {activity.task.id}
                         header={activity.task.title}
                         color={activity.task.color}
                         taskLogs={activity.logs}

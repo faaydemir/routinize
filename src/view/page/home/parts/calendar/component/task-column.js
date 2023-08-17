@@ -3,7 +3,7 @@ import TaskCheck from "view/component/task-check";
 
 const TaskColumn = ({ header, color, taskLogs, onTaskChecked, onHeaderClick }) => {
     return (
-        <div 
+        <div
             className="calendar-column"
             style={
                 {
@@ -29,9 +29,10 @@ const TaskColumn = ({ header, color, taskLogs, onTaskChecked, onHeaderClick }) =
             <div className="calendar-units flex-row">
                 {taskLogs && taskLogs.map((taskLog) => (
                     <TaskCheck
+                        key={taskLog.id}
                         taskLog={taskLog}
                         onTaskChecked={() => onTaskChecked && onTaskChecked(taskLog)}
-                    ></TaskCheck>
+                    />
                 ))}
             </div>
         </div >

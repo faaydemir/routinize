@@ -53,7 +53,7 @@ class DateLogStore extends BaseStore {
       ],
       'id'
     );
-    console.log({ logs });
+
     if (!_.isEmpty(logs)) {
       return logs.map(d => DateLog.fromDoc(d));
     } else {

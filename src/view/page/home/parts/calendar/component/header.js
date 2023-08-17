@@ -18,9 +18,9 @@ const Header = ({ days, onItemClick = undefined }) => {
             <div className="calendar-units flex-row">
                 {days && days.map((d) => (
                     <DayBox
+                        key= {d.id}
                         day={d}
                         isFocus={d.start.isToday()}
-                        onCheckClick={() => onItemClick && onItemClick(d)}
                     ></DayBox>
                 ))}
             </div>

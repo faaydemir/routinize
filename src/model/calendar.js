@@ -83,9 +83,6 @@ export default class Calendar {
         const loggedTaskIds = _.uniq(taskLogs.map(l => l.taskId)).filter(id => !activeTaskIds.includes(id));
 
         const loggedTasks = await taskStore.getTasksById(loggedTaskIds);
-        console.log({ tasks });
-        console.log({ taskLogs });
-        console.log({ loggedTasks });
 
         return Calendar.create(
             startDate,

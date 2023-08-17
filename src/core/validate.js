@@ -16,7 +16,7 @@ function validateSchema(schema, input) {
             errorsByKey[key] = detail.message;
         });
 
-        console.log('Errors by key:', errorsByKey);
+        console.warn({ errorsByKey });
         return errorsByKey
     }
 }

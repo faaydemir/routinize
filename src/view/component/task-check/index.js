@@ -8,7 +8,7 @@ import "./style.scss"
  * @param  {Object} obj
  * @param  {DateLog} obj.taskLog
  * @param  {any} obj.onTaskChecked
- * @param  {String} obj.sizeClass
+ * @param  {String=} obj.sizeClass
  */
 const TaskCheck = ({ taskLog, onTaskChecked, sizeClass = undefined }) => {
     const getSizeClass = (unit) => (unit ? `box-${unit.range}-1` : "box-1-1");
