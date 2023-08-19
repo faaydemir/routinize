@@ -14,22 +14,28 @@ import { getUser } from "core/firebase/auth/session";
 
 
 export default function App() {
-
+  const [isAuthChecking, setIsAuthChecking] = useState(true)
   const { isAuthenticated } = useStatefy(authState, 'isAuthenticated');
   useEffect(() => {
     const checkAuthentication = async () => {
-      const user = await getUser();
-      if (user) loginSucceed(user.email);
+      try {
+        const user = await getUser();
+        if (user) loginSucceed(user.email);
+      } finally {
+        setIsAuthChecking(false);
+      }
     }
     checkAuthentication();
   }, []);
 
   return (
-    <Switch>
-      <Route path='/signin' render={() => isAuthenticated ? <Home /> : <SignIn />} />
-      <Route path='/signup' render={() => isAuthenticated ? <Home /> : <SignUp />} />
-      <Route path='/' render={() => isAuthenticated ? <Home /> : <SignIn />} />
-    </Switch>
+    isAuthChecking
+      ? <Spinner isVisible={true} />
+      : <Switch>
+        <Route path='/signin' render={() => isAuthenticated ? <Home /> : <SignIn />} />
+        <Route path='/signup' render={() => isAuthenticated ? <Home /> : <SignUp />} />
+        <Route path='/' render={() => isAuthenticated ? <Home /> : <SignIn />} />
+      </Switch>
   );
 }
 
