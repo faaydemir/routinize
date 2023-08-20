@@ -1,9 +1,8 @@
 import statefy from "core/statefy";
-import { TIME_PERIODS } from "utils/just-date";
 
 const calendarState = statefy({
     calendar: undefined,
-    calendarPeriod: TIME_PERIODS.WEEK,
+    calendarPeriod: undefined,
     startOfCalendar: undefined,
     isCalendarLoading: false,
 });
