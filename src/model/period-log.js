@@ -23,16 +23,17 @@ export default class PeriodLog {
         // get time units for task period
         const units = getTimeUnitsInRange(task.period || TIME_PERIODS.DAY, startDate, endDate);
         units.forEach(unit => {
-            const log = logs[unit.id]
-                ? logs[unit.id]
-                : DateLog.create({
-                    taskId: task.id,
-                    progressType: task.progressType,
-                    unit,
-                    stepCount: task.stepCount,
-                    subTasks: task.subtasks
-                });
-
+            const log = DateLog.create({
+                taskId: task.id,
+                progressType: task.progressType,
+                unit,
+                stepCount: task.stepCount,
+                subTasks: task.subtasks
+            });
+            //TODO move to DateLog class 
+            if (logs[unit.id]) {
+                log.progress = logs[unit.id].progress
+            }
             log.isLocked = !task.isActiveInDateRange(unit.start, unit.end)
             activity.logs.push(log);
 

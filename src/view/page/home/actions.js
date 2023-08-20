@@ -9,7 +9,8 @@ import { detailedTaskLogOpened, logProgressed, taskLoggingCanceled } from "state
 import JustDate from "utils/just-date";
 
 const _loadCalendar = async ({ startOfCalendar = undefined, calendarPeriod }) => {
-    if (!calendarPeriod) {
+
+    if (!calendarPeriod) {   
         calendarPeriod = localStorage.getItem("calendarPeriod");
         calendarPeriodChanged(calendarPeriod);
     }
