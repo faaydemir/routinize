@@ -99,10 +99,18 @@
     justify-content: flex-end;
 
     @media (max-width: 768px) {
-        margin: 0.5em 0.4em 0.5em 5em;
+        position: fixed;
+        padding: 0;
+        bottom: 1em;
+        right: 1em;
         background-color: transparent;
         justify-content: space-between;
         align-self: end;
+        button {
+            height: 50px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
     }
 }
 
@@ -215,7 +223,7 @@ a:active {
 
     @media (max-width: 768px) {
         position: sticky;
-        left: 0;
+        left: 10px;
         height: 1.3em;
         margin: 0px;
         justify-content: flex-start;

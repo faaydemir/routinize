@@ -33,18 +33,19 @@ const Calendar = ({ }) => {
       <main className="calendar-container">
         <h4 className="calendar-header">{getHeaderForCalendar()}</h4>
         <div className="calendar-mid">
-          <div className="calendar-main">
 
-            {(calendar && calendar.activities && calendar.activities.length > 0)
 
-              ? <>
+          {(calendar && calendar.activities && calendar.activities.length > 0)
+
+            ? <>
+              <div className="calendar-main">
                 <Header days={calendar.days} />
 
                 {
                   calendar.activities.map(
                     activity => (
                       <TaskColumn
-                        key= {activity.task.id}
+                        key={activity.task.id}
                         header={activity.task.title}
                         color={activity.task.color}
                         taskLogs={activity.logs}
@@ -53,20 +54,20 @@ const Calendar = ({ }) => {
                       />)
                   )
                 }
-
-                <Pagination
-                  calendarPeriod={calendarPeriod}
-                  onCalendarPeriodChanged={async (calendarPeriod) => await changeCalendarPeriod({ startOfCalendar, calendarPeriod })}
-                  onNowClicked={async () => await loadCurrentCalendar({ calendarPeriod })}
-                  onNextClicked={async () => await loadNextCalendar({ calendarPeriod, startOfCalendar })}
-                  onPreviousClicked={async () => await loadPreviousCalendar({ calendarPeriod, startOfCalendar })}
-                />
-              </>
-              :
-              <span className="warning-message">No tasks have been added yet.</span>
-            }
-          </div>
+              </div>
+              <Pagination
+                calendarPeriod={calendarPeriod}
+                onCalendarPeriodChanged={async (calendarPeriod) => await changeCalendarPeriod({ startOfCalendar, calendarPeriod })}
+                onNowClicked={async () => await loadCurrentCalendar({ calendarPeriod })}
+                onNextClicked={async () => await loadNextCalendar({ calendarPeriod, startOfCalendar })}
+                onPreviousClicked={async () => await loadPreviousCalendar({ calendarPeriod, startOfCalendar })}
+              />
+            </>
+            :
+            <span className="warning-message">No tasks have been added yet.</span>
+          }
         </div>
+
       </main>
     </>
   );
