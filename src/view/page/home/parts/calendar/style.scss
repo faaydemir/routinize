@@ -48,6 +48,7 @@
         height: 100%;
         width: 100%;
         flex-direction: column;
+        margin-bottom: 50px;
     }
 }
 
@@ -101,15 +102,15 @@
     @media (max-width: 768px) {
         position: fixed;
         padding: 0;
-        bottom: 1em;
-        right: 1em;
+        bottom: 0.5em;
+        right: 0.5em;
         background-color: transparent;
         justify-content: space-between;
         align-self: end;
         button {
-            height: 50px;
-            padding-left: 10px;
-            padding-right: 10px;
+            height: 40px;
+            padding-left: 7px;
+            padding-right: 7px;
         }
     }
 }
