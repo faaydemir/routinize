@@ -107,6 +107,7 @@
         background-color: transparent;
         justify-content: space-between;
         align-self: end;
+
         button {
             height: 40px;
             padding-left: 7px;
@@ -243,4 +244,8 @@ a:active {
 
 .day-task-header {
     font-weight: 500;
+
+    @media (max-width: 768px) {
+        height: $tile-size*0.7 !important;
+    }
 }
