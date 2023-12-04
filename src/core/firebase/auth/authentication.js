@@ -15,11 +15,13 @@ class AuthFailed extends Error {
 
     static mapErrorMessage(error) {
         const errorMessageMapping = {
+            'auth/missing-email': 'Missing email',
             'auth/user-not-found': 'User not found',
             'auth/email-already-in-use': 'Email already in use',
             'auth/invalid-email': 'Invalid email',
             'auth/wrong-password': 'Wrong password',
-            'auth/weak-password': 'Weak password'
+            'auth/weak-password': 'Weak password',
+            'auth/missing-password': 'Missing password',
         }
 
         return errorMessageMapping[error] ?? error;

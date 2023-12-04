@@ -2,19 +2,6 @@ import action from "core/action-builder/app-action-builder";
 import { deleteAccount, signIn, signOut, signUp } from "core/firebase/auth/authentication";
 import { loggedOut, authFailed, loginSucceed, accountDeleted } from "state/auth";
 
-const mapErrorMessage = (error) => {
-    const errorMessageMapping = {
-        'auth/missing-email': 'Missing email',
-        'auth/user-not-found': 'User not found',
-        'auth/email-already-in-use': 'Email already in use',
-        'auth/invalid-email': 'Invalid email',
-        'auth/wrong-password': 'Wrong password',
-        'auth/weak-password': 'Weak password'
-    }
-
-    return errorMessageMapping[error] ?? error;
-}
-
 const logout = action().lock().do(
     async () => {
         await signOut();
@@ -46,7 +33,7 @@ const login = action().lock().do(
             loginSucceed(email);
             pushHistory("/");
         } catch (error) {
-            authFailed([mapErrorMessage(error.message)]);
+            authFailed([error.message]);
         }
     }
 );
@@ -58,7 +45,7 @@ const register = action().lock().do(
             loginSucceed(email);
             pushHistory("/");
         } catch (error) {
-            authFailed([mapErrorMessage(error.message)]);
+            authFailed([error.message]);
         }
     }
 );
