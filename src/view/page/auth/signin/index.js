@@ -1,4 +1,4 @@
-import { useStatefy } from "core/statefy";
+import { useStatefy } from "react-statefy";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import authState from "state/auth";

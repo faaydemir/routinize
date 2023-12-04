@@ -5,7 +5,7 @@ import _ from "lodash";
 import { PROGRESS_TYPE, TASK_PRIORITY } from "model/enums";
 import InputError from "view/component/error-message";
 import { TIME_PERIODS } from "utils/just-date";
-import { useStatefy } from "core/statefy";
+import { useStatefy } from "react-statefy";
 import taskEditState from "state/taskEdit";
 import { cancelTaskEditing, deleteTask, endTask, saveTask } from "view/page/home/actions";
 import "./style.scss";

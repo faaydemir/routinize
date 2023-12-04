@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import JustDate, { TIME_PERIODS } from "utils/just-date";
 import { loadCurrentCalendar, logTaskProgress, editTask, loadNextCalendar, loadPreviousCalendar, changeCalendarPeriod } from "view/page/home/actions";
-import { useStatefy } from "core/statefy";
+import { useStatefy } from "react-statefy";
 import calendarState from "state/calendar";
 import "./style.scss";
 import Header from "view/page/home/parts/calendar/component/header";

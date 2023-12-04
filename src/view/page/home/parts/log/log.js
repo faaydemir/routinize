@@ -1,7 +1,7 @@
 import React from "react";
 import ReactModal from 'react-modal';
 import { cancelTaskLogging, logSubTaskProgress, logTaskProgress } from "view/page/home/actions";
-import { useStatefy } from "core/statefy";
+import { useStatefy } from "react-statefy";
 import dateLogState from "state/taskLog";
 import DateLog from "model/date-log";
 import "./style.scss"

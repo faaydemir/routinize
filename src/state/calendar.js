@@ -1,4 +1,4 @@
-import statefy from "core/statefy";
+import statefy from "react-statefy";
 
 const calendarState = statefy({
     calendar: undefined,

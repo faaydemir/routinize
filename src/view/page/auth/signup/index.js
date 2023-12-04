@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { useStatefy } from "core/statefy";
+import { useStatefy } from "react-statefy";
 import authState from "state/auth";
 import "../style.scss"
 import { register } from "view/page/auth/actions";

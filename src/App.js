@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import Spinner from "./view/component/spinner";
 import authState, { loginSucceed } from "state/auth";
-import { useStatefy } from "core/statefy";
+import { useStatefy } from "react-statefy";
 import Home from "view/page/home";
 import SignIn from "view/page/auth/signin";
 import SignUp from "view/page/auth/signup";

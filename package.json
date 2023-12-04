@@ -20,6 +20,7 @@
     "react-modal": "^3.15.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.1",
+    "react-statefy": "^0.0.9",
     "sass": "^1.54.0"
   },
   "devDependencies": {
@@ -35,7 +36,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy" :"gh-pages -d build",
+    "deploy": "gh-pages -d build",
     "gh-pages:404": "cp build/index.html build/404.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
