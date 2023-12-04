@@ -61,7 +61,7 @@ export const editTask = (selectedTask) => {
 export const deleteTask = async ({ task }) => {
     taskProcessingStarted();
     await task.delete();
-    const { startOfCalendar, calendarPeriod } = calendarState.state();
+    const { startOfCalendar, calendarPeriod } = calendarState.get();
     await _loadCalendar({ startOfCalendar, calendarPeriod });
     taskProcessingCompleted();
 }
@@ -72,7 +72,7 @@ export const deleteTask = async ({ task }) => {
 export const endTask = async ({ task }) => {
     taskProcessingStarted();
     await task.complete();
-    const { startOfCalendar, calendarPeriod } = calendarState.state();
+    const { startOfCalendar, calendarPeriod } = calendarState.get();
     await _loadCalendar({ startOfCalendar, calendarPeriod });
     taskProcessingCompleted();
 }
@@ -96,7 +96,7 @@ export const saveTask = async ({ inputs, selectedTask }) => {
         taskSavingCompleted(task);
     }
 
-    const { startOfCalendar, calendarPeriod } = calendarState.state();
+    const { startOfCalendar, calendarPeriod } = calendarState.get();
     _loadCalendar({ startOfCalendar, calendarPeriod });
 }
 
@@ -128,12 +128,12 @@ export const logSubTaskProgress = async ({ log, subTask }) => {
 
 async function _saveLog(log) {
     logProgressed(log);
-    const { calendar } = calendarState.state();
+    const { calendar } = calendarState.get();
     calendarModified(calendar);
     try {
         await log.save();
     } catch (err) {
-        const { startOfCalendar, calendarPeriod } = calendarState.state();
+        const { startOfCalendar, calendarPeriod } = calendarState.get();
         _loadCalendar({ startOfCalendar, calendarPeriod });
         throw err;
     }
