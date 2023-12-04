@@ -72,6 +72,11 @@ const EditTask = () => {
   };
 
   useEffect(() => {
+    if (isTaskEditVisible === false) {
+      setTaskDraft({});
+      return;
+    }
+
     if (!_.isEmpty(selectedTask)) {
       setTaskDraft({ ...selectedTask });
       setIsEdit(true);
@@ -79,7 +84,7 @@ const EditTask = () => {
       setTaskDraft(defaultTaskDraft)
       setIsEdit(false);
     }
-  }, [selectedTask]);
+  }, [selectedTask, isTaskEditVisible]);
 
   return (
     <ReactModal

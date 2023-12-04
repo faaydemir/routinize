@@ -23,6 +23,7 @@ export const taskDeleteStarted = () => {
 
 export const taskDeleteCompleted = () => {
     taskEditState.mutate({
+        selectedTask: undefined,
         isTaskEditProcessing: false,
         isTaskEditVisible: false,
     });
