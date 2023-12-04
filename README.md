@@ -14,7 +14,5 @@ https://faaydemir.github.io/routinize
 - task versioning
 - export user data
 - notification
-- implement delete me 
 ## issues
 - monyhly view extend at small screen
-- after task added form is not cleaned
