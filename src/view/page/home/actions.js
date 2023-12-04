@@ -6,12 +6,12 @@ import Task from "model/task";
 import calendarState, { calendarLoaded, calendarModified, calendarPeriodChanged, loadingCalendar } from "state/calendar";
 import { taskDeleteCompleted as taskProcessingCompleted, taskDeleteStarted as taskProcessingStarted, taskEditCanceled, taskEditStarted, taskSavingCompleted, taskSavingStarted, taskValidationFailed } from "state/taskEdit";
 import { detailedTaskLogOpened, logProgressed, taskLoggingCanceled } from "state/taskLog";
-import JustDate from "utils/just-date";
+import JustDate, { TIME_PERIODS } from "utils/just-date";
 
 const _loadCalendar = async ({ startOfCalendar = undefined, calendarPeriod }) => {
 
     if (!calendarPeriod) {   
-        calendarPeriod = localStorage.getItem("calendarPeriod");
+        calendarPeriod = localStorage.getItem("calendarPeriod") ?? TIME_PERIODS.WEEK;
         calendarPeriodChanged(calendarPeriod);
     }
 
